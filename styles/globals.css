@@ -1,0 +1,51 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Gotham";
+  src: local("Gotham"), url(/font/Gotham.ttf) format("truetype"),
+    url(/font/Gotham.woff) format("woff");
+}
+
+@font-face {
+  font-family: "MyriadPro";
+  src: local("MyriadPro"), url(/font/MyriadPro.otf) format("opentype"),
+    url(/font/MyriadPro.woff) format("woff");
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  background-color: #111;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+.custom-scroll::-webkit-scrollbar {
+  width: 8px;
+}
+.custom-scroll::-webkit-scrollbar-thumb {
+  background-color: #2f3542;
+  border-radius: 0.25rem;
+  /* border: 2px solid transparent; */
+  /* background-clip: padding-box; */
+}
+.custom-scroll::-webkit-scrollbar-track {
+  background-color: rgba(128, 128, 128, 0.6);
+  border-radius: 0.25rem;
+}
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
