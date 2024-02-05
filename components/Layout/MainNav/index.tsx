@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react";
 import { useFadeToggle } from "hooks/useFadeToggle";
 import { mainNavbar, enterAppNavbar } from "@stores/constant";
 import Image from "next/image";
@@ -6,12 +5,11 @@ import MainNavItem from "./MainNavItem";
 import { GoChevronUp, GoChevronDown } from "react-icons/go";
 import { GradientBorder } from "../Gradient";
 import { useRouter } from "next/router";
-import Link from "next/link";
 
 const MainNav = () => {
   const menuToggle = useFadeToggle(100);
   const enterAppToggle = useFadeToggle(100);
-
+  const router = useRouter();
   return (
     <>
       <div
@@ -23,21 +21,19 @@ const MainNav = () => {
             menuToggle.visible ? "bg-black" : "bg-[#111111]"
           } flex justify-between py-8 px-6 z-20`}
         >
-          <Link href="/">
-            <a>
-              <div
-                className="w-[300px] sm:w-[250px] xs:w-[150px] 2xs:w-[120px] after:pb-[20%] flex relative cursor-pointer"
-                id="logo"
-              >
-                <Image
-                  src="/MBTCs/footer/footer_logo.webp"
-                  alt="logo"
-                  objectFit="contain"
-                  layout="fill"
-                />
-              </div>
-            </a>
-          </Link>
+          <button
+            onClick={() => router.push("/")}
+            className="w-[300px] sm:w-[250px] xs:w-[150px] 2xs:w-[120px] after:pb-[20%] flex relative cursor-pointer"
+            id="logo"
+          >
+            <Image
+              src="/MBTCs/footer/footer_logo.webp"
+              alt="logo"
+              objectFit="contain"
+              layout="fill"
+            />
+          </button>
+
           <div
             className={`block w-1/12 h-1/12 relative hamburg cursor-pointer ml-8 sm:ml-1 ${
               (menuToggle.visible && menuToggle.visibleEffect) ||
@@ -129,36 +125,6 @@ const MainNav = () => {
           </div>
         )}
       </div>
-      <style>{`
-.hamburg span {
-  transition: all cubic-bezier(0.25, 0.1, 0.28, 1.54) 0.32s;
-  position: absolute;
-  height: 4px;
-  width: 100%;
-  border-radius: 10px;
-  background: white;
-}
-.line1 {
-  top: 19%;
-}
-.line2 {
-  top: 49%;
-}
-.line3 {
-  top: 79%;
-}
-.close .line1 {
-  top: 49%;
-  transform: rotate(45deg);
-}
-.close .line2 {
-  transform: rotate(-45deg);
-}
-.close .line3 {
-  top: 49%;
-  transform: rotate(-45deg);
-}
-`}</style>
     </>
   );
 };

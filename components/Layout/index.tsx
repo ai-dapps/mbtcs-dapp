@@ -11,7 +11,7 @@ import { useEffect } from "react";
 export const Layout = ({ children }: childrenProps) => {
   const { setWallet } = store.wallet.WalletStore();
   useEffect(() => {
-    if (typeof window !== "undefined") {
+    if (typeof window !== "undefined" && window.ethereum) {
       const provider =
         window.ethereum.providers?.find(
           (provider: any) => provider.isMetaMask

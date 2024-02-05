@@ -49,3 +49,33 @@ input[type="number"]::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
+
+
+.hamburg span {
+  transition: all cubic-bezier(0.25, 0.1, 0.28, 1.54) 0.32s;
+  position: absolute;
+  height: 4px;
+  width: 100%;
+  border-radius: 10px;
+  background: white;
+}
+.line1 {
+  top: 19%;
+}
+.line2 {
+  top: 49%;
+}
+.line3 {
+  top: 79%;
+}
+.close .line1 {
+  top: 49%;
+  transform: rotate(45deg);
+}
+.close .line2 {
+  transform: rotate(-45deg);
+}
+.close .line3 {
+  top: 49%;
+  transform: rotate(-45deg);
+}

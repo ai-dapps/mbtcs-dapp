@@ -2,8 +2,10 @@ import Image from "next/image";
 import Link from "next/link";
 import { GradientText } from "@components/Layout/Gradient";
 import SectionLayout from "@components/Layout/SectionLayout";
+import { useRouter } from "next/router";
 
 const Home = () => {
+  const router = useRouter();
   return (
     <>
       <SectionLayout id="MBTCs" className="bg-[#040213]">
@@ -32,13 +34,15 @@ const Home = () => {
             <span className="font-extrabold tracking-tight">{`Trust Standard in the\nMetaverse`}</span>
           </GradientText>
           <h1></h1>
-          <Link href="/app">
-            <a>
-              <div className="bg-white w-full py-8 xs:py-4 2xs:py-4 px-10 xs:px-8 2xs:px-8 mt-16 xs:mt-8 rounded-full font-Gotham font-black text-4xl xs:text-xl 2xs:text-xl">
-                ENTER APP
-              </div>
-            </a>
-          </Link>
+
+          <div>
+            <button
+              onClick={() => router.push("/app")}
+              className="bg-white w-full py-8 xs:py-4 2xs:py-4 px-10 xs:px-8 2xs:px-8 mt-16 xs:mt-8 rounded-full font-Gotham font-black text-4xl xs:text-xl 2xs:text-xl"
+            >
+              ENTER APP
+            </button>
+          </div>
         </div>
       </SectionLayout>
       <style jsx>{``}</style>
